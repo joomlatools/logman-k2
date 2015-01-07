@@ -1,0 +1,24 @@
+{
+  "name": "joomlatools/plg_logman_k2",
+  "type": "joomla-extension",
+  "license": "GPLv3",
+  "description": "Handles logging of K2 component events",
+  "keywords": [
+    "joomla",
+    "extension",
+    "plugins",
+    "logman",
+    "k2"
+  ],
+  "homepage": "https://github.com/joomlatools/logman-k2",
+  "authors": [
+    {
+      "name": "Joomlatools",
+      "email": "info@joomlatools.net",
+      "homepage": "http://www.joomlatools.com"
+    }
+  ],
+  "require": {
+    "nooku/installer": "*"
+  }
+}
