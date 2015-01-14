@@ -15,11 +15,6 @@
 class plgLogmanK2InstallerScript
 {
     /**
-     * Name of the component
-     */
-    public $component;
-
-    /**
      * @var string The current installed LOGman version.
      */
     protected $_logman_ver = null;
