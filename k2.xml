@@ -11,6 +11,8 @@
     <version>2.0.0</version>
     <description>PLG_LOGMAN_K2_DESC</description>
 
+    <scriptfile>install.php</scriptfile>
+
     <files>
         <filename plugin="k2">k2.php</filename>
         <folder>activity</folder>
