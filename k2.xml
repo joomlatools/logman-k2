@@ -15,6 +15,7 @@
 
     <files>
         <filename plugin="k2">k2.php</filename>
+        <filename>version.php</filename>
         <folder>activity</folder>
         <folder>language</folder>
     </files>
