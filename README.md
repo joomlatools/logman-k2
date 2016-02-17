@@ -1,7 +1,7 @@
 LOGman K2 plugin
 ========================
 
-Plugin for integrating [K2](http://getk2.org/) with LOGman. [LOGman](http://joomlatools.com/logman) is a user analytics and audit trail solution for Joomla.
+Plugin for integrating [K2](http://getk2.org/) with LOGman. [LOGman](https://www.joomlatools.com/extensions/logman/) is a user analytics and audit trail solution for Joomla.
 
 ## Installation
 
