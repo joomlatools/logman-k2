@@ -26,7 +26,7 @@ class PlgLogmanK2 extends ComLogmanPluginJoomla
 
     public function onFinderAfterSave($context, $row, $isNew)
     {
-        // Item model triggers both content and finder after save events. Only one should go through.
+        // Item controller triggers both content and finder after save events. Only one should go through.
         if ($context != 'com_k2.item') {
             $this->onContentAfterSave($context, $row, $isNew); // Forward event to the content event handler.
         }
