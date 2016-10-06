@@ -14,15 +14,8 @@
  */
 class PlgLogmanK2 extends ComLogmanPluginJoomla
 {
-    protected function _initialize(KObjectConfig $config)
-    {
-        $config->append(array('resources' => array('item', 'category')));
-        parent::_initialize($config);
-    }
-
     protected function _getItemObjectData($data, $event)
     {
-
         return array('id' => $data->id, 'name' => $data->title);
     }
 
