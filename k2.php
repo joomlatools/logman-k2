@@ -49,4 +49,28 @@ class PlgLogmanK2 extends ComLogmanPluginJoomla
 
         return parent::_getItems($ids, $config);
     }
+
+    public function onContentChangeState($context, $pks, $state)
+    {
+        if (in_array($context, $this->_contexts))
+        {
+            $parts = explode('.', $context);
+
+            $table = sprintf('k2_%s', KStringInflector::pluralize($parts[1]));
+
+            $adapter = $this->getObject('lib:database.adapter.mysqli');
+
+            $query = $this->getObject('lib:database.query.select')
+                          ->table($table)
+                          ->columns('trash')
+                          ->where('id IN :id')
+                          ->bind(array('id' => $pks));
+
+            if ($adapter->select($query, KDatabase::FETCH_FIELD) == 1) {
+                $state = -2; // Set state as trash
+            }
+        }
+
+        parent::onContentChangeState($context, $pks, $state);
+    }
 }
