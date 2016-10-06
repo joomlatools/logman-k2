@@ -34,14 +34,12 @@ class PlgLogmanK2 extends ComLogmanPluginJoomla
 
     public function onFinderAfterDelete($context, $row)
     {
-        // Forward event to the content event handler.
-        $this->onContentAfterDelete($context, $row);
+        $this->onContentAfterDelete($context, $row); // Forward event to the content event handler.
     }
 
     public function onFinderChangeState($context, $cid, $state)
     {
-        // Forward event to the content event handler.
-        $this->onContentChangeState($context, $cid, $state);
+        $this->onContentChangeState($context, $cid, $state); // Forward event to the content event handler.
     }
 
     protected function _getItems($ids, KObjectConfig $config)
