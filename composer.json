@@ -1,6 +1,6 @@
 {
   "name": "joomlatools/plg_logman_k2",
-  "type": "joomla-extension",
+  "type": "joomlatools-composer",
   "license": "GPLv3",
   "description": "Handles logging of K2 component events",
   "keywords": [
@@ -19,6 +19,6 @@
     }
   ],
   "require": {
-    "nooku/installer": "*"
+    "joomlatools/composer": "*"
   }
 }
