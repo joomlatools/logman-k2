@@ -41,7 +41,8 @@ The following K2 actions are currently logged:
 * Delete
 * Publish
 * Unpublish
-
+* Trash
+ 
 ### Categories
 
 * Add
@@ -49,7 +50,4 @@ The following K2 actions are currently logged:
 * Delete
 * Publish
 * Unpublish
-
-## Limitations
-
-Trash actions on both categories and items are not supported since no events are internally triggered by K2 upon those actions.
+* Trash
