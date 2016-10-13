@@ -1,5 +1,5 @@
 {
-  "name": "joomlatools/plg_logman_k2",
+  "name": "joomlatools/logman-k2",
   "type": "joomlatools-composer",
   "license": "GPLv3",
   "description": "Handles logging of K2 component events",
