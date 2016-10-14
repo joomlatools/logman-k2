@@ -3,19 +3,18 @@
     <identifier>plg:logman.k2</identifier>
     <name>plg_logman_k2</name>
     <author>Joomlatools</author>
-    <creationDate>January 2015</creationDate>
-    <copyright>Copyright (C) 2011 - 2015 Timble CVBA (http://www.timble.net)</copyright>
+    <creationDate>October 2016</creationDate>
+    <copyright>Copyright (C) 2011 - 2016 Timble CVBA (http://www.timble.net)</copyright>
     <license>GNU GPLv3 - http://www.gnu.org/licenses/gpl.html</license>
     <authorEmail>support@joomlatools.com</authorEmail>
     <authorUrl>www.joomlatools.com</authorUrl>
-    <version>2.0.0</version>
+    <version>3.0.0</version>
     <description>PLG_LOGMAN_K2_DESC</description>
 
     <scriptfile>install.php</scriptfile>
 
     <files>
         <filename plugin="k2">k2.php</filename>
-        <filename>version.php</filename>
         <folder>activity</folder>
         <folder>language</folder>
     </files>
@@ -23,4 +22,27 @@
     <config>
         <fields name="params" />
     </config>
+
+    <resources>
+        <resource name="item">
+            <actions>
+                <action>add</action>
+                <action>edit</action>
+                <action>delete</action>
+                <action>publish</action>
+                <action>unpublish</action>
+                <action>trash</action>
+            </actions>
+        </resource>
+        <resource name="category">
+            <actions>
+                <action>add</action>
+                <action>edit</action>
+                <action>delete</action>
+                <action>publish</action>
+                <action>unpublish</action>
+                <action>trash</action>
+            </actions>
+        </resource>
+    </resources>
 </extension>
