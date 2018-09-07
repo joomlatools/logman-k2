@@ -32,9 +32,16 @@ class PlgLogmanK2ActivityItem extends ComLogmanModelEntityActivity
     {
         $config->append(array(
             'subtype' => array('object' => true, 'objectName' => 'K2'),
-            'url'     => array('admin' => 'option=com_k2&view=item&cid=' . $this->row)
         ));
 
-        parent::_objectConfig($config);
+        if ($this->getActivityVerb() == 'read') {
+            $url = $this->getObject('lib:http.url', array('url' => $this->title));
+        } else {
+            $url = 'option=com_k2&view=item&cid=' . $this->row;
+        }
+
+       $config->append(array('url' => array('admin' => $url)));
+
+       parent::_objectConfig($config);
     }
 }
