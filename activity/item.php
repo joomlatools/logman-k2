@@ -16,10 +16,15 @@ class PlgLogmanK2ActivityItem extends ComLogmanModelEntityActivity
 {
     protected function _initialize(KObjectConfig $config)
     {
+        if ($config->data->action == 'read') {
+            $config->append(array('format' => '{actor} {action} {object.subtype} {object.type} {object}'));
+        }
+
         $config->append(array(
             'object_table' => 'k2_items',
             'format'       => '{actor} {action} {object.subtype} {object.type} title {object}'
         ));
+
         parent::_initialize($config);
     }
 
