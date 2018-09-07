@@ -14,6 +14,33 @@
  */
 class PlgLogmanK2 extends ComLogmanPluginJoomla
 {
+
+
+    protected function _initialize(KObjectConfig $config)
+    {
+        $config->append(array(
+            'impressions' => array(
+                'enabled'    => true,
+                'conditions' => array('view' => 'item')
+            )
+        ));
+
+        parent::_initialize($config);
+    }
+
+    protected function _getItemImpressionData($query)
+    {
+        $row = $query['id'];
+
+        $parts = explode(':', $row);
+
+        if (count($parts) > 1 && is_numeric($parts[0])) {
+            $row = $parts[0];
+        }
+
+        return array('row' => $row, 'name' => 'item');
+    }
+
     protected function _getItemObjectData($data, $event)
     {
         return array('id' => $data->id, 'name' => $data->title);
