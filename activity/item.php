@@ -34,14 +34,19 @@ class PlgLogmanK2ActivityItem extends ComLogmanModelEntityActivity
             'subtype' => array('object' => true, 'objectName' => 'K2'),
         ));
 
-        if ($this->getActivityVerb() == 'read') {
-            $url = $this->getObject('lib:http.url', array('url' => $this->title));
-        } else {
-            $url = 'option=com_k2&view=item&cid=' . $this->row;
+        if ($this->getActivityVerb() == 'read')
+        {
+            $helper = $this->getObject('com://admin/logman.template.helper.impression');
+
+            $url = $this->getObject('lib:http.url', array(
+                'url' => $helper->route(
+                    array('url' => $this->title))
+            ));
         }
+        else $url = 'option=com_k2&view=item&cid=' . $this->row;
 
-       $config->append(array('url' => array('admin' => $url)));
+        $config->append(array('url' => array('admin' => $url)));
 
-       parent::_objectConfig($config);
+        parent::_objectConfig($config);
     }
 }
