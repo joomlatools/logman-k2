@@ -14,8 +14,6 @@
  */
 class PlgLogmanK2 extends ComLogmanPluginJoomla
 {
-
-
     protected function _initialize(KObjectConfig $config)
     {
         $config->append(array(
@@ -79,7 +77,9 @@ class PlgLogmanK2 extends ComLogmanPluginJoomla
 
     public function onContentChangeState($context, $pks, $state)
     {
-        if (in_array($context, $this->_contexts))
+        $contexts = KObjectConfig::unbox($activities = $this->getConfig()->activities->contexts);
+
+        if (in_array($context, $contexts))
         {
             $parts = explode('.', $context);
 
