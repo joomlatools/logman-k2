@@ -16,8 +16,19 @@ class PlgLogmanK2ActivityItem extends ComLogmanModelEntityActivity
 {
     protected function _initialize(KObjectConfig $config)
     {
-        if ($config->data->action == 'read') {
-            $config->append(array('format' => '{actor} {action} {object.subtype} {object.type} {object}'));
+        if ($config->data->action == 'read')
+        {
+            if (is_string($config->data->metadata)) {
+                $metadata = json_decode($config->data->metadata, true);
+            } else {
+                $metadata = $config->data->metadata;
+            }
+
+            if (isset($metadata['url'])) {
+                $config->append(array('format' => '{actor} {action} {object.type} {object} {object.impression}'));
+            } else {
+                $config->append(array('format' => '{actor} {action} {object.subtype} {object.type} {object}'));
+            }
         }
 
         $config->append(array(
@@ -34,16 +45,35 @@ class PlgLogmanK2ActivityItem extends ComLogmanModelEntityActivity
             'subtype' => array('object' => true, 'objectName' => 'K2'),
         ));
 
+        $url = 'option=com_k2&view=item&cid=' . $this->row;
+
         if ($this->getActivityVerb() == 'read')
         {
-            $helper = $this->getObject('com://admin/logman.template.helper.impression');
+            $helper   = $this->getObject('com://admin/logman.template.helper.impression');
+            $metadata = $this->getMetadata();
 
-            $url = $this->getObject('lib:http.url', array(
-                'url' => $helper->route(
-                    array('url' => $this->title))
-            ));
+            if ($metadata->url)
+            {
+                $config->append(array(
+                    'impression' => array(
+                        'object'     => true,
+                        'objectName' => $metadata->url,
+                        'url'        =>
+                            array(
+                                'admin' => $this->getObject('lib:http.url',
+                                    array('url' => $helper->route(array('url' => $metadata->url))))
+                            )
+                    )
+                ));
+            }
+            else
+            {
+                $url = $this->getObject('lib:http.url', array(
+                    'url' => $helper->route(
+                        array('url' => $this->title))
+                ));
+            }
         }
-        else $url = 'option=com_k2&view=item&cid=' . $this->row;
 
         $config->append(array('url' => array('admin' => $url)));
 
