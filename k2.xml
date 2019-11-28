@@ -3,12 +3,12 @@
     <identifier>plg:logman.k2</identifier>
     <name>plg_logman_k2</name>
     <author>Joomlatools</author>
-    <creationDate>October 2016</creationDate>
-    <copyright>Copyright (C) 2011 - 2016 Timble CVBA (http://www.timble.net)</copyright>
+    <creationDate>December 2019</creationDate>
+    <copyright>Copyright (C) 2011 Timble CVBA (http://www.timble.net)</copyright>
     <license>GNU GPLv3 - http://www.gnu.org/licenses/gpl.html</license>
     <authorEmail>support@joomlatools.com</authorEmail>
     <authorUrl>www.joomlatools.com</authorUrl>
-    <version>3.0.0</version>
+    <version>4.0.0</version>
     <description>PLG_LOGMAN_K2_DESC</description>
 
     <scriptfile>install.php</scriptfile>
