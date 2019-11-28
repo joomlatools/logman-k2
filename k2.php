@@ -36,7 +36,15 @@ class PlgLogmanK2 extends ComLogmanPluginJoomla
             $row = $parts[0];
         }
 
-        return array('row' => $row, 'name' => 'item');
+        $data = array('title' => '', 'row' => $row, 'name' => 'item');
+
+        $item = JTable::getInstance('K2Item', 'Table');
+
+        if ($item->load($row)) {
+            $data['title'] = $item->title;
+        }
+
+        return $data;
     }
 
     protected function _getItemObjectData($data, $event)
