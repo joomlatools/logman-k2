@@ -18,13 +18,7 @@ class PlgLogmanK2ActivityItem extends ComLogmanModelEntityActivity
     {
         if ($config->data->action == 'read')
         {
-            if (is_string($config->data->metadata)) {
-                $metadata = json_decode($config->data->metadata, true);
-            } else {
-                $metadata = $config->data->metadata;
-            }
-
-            if (isset($metadata['url'])) {
+            if (isset($config->data->metadata['url'])) {
                 $config->append(array('format' => '{actor} {action} {object.type} {object} {object.impression}'));
             } else {
                 $config->append(array('format' => '{actor} {action} {object.subtype} {object.type} {object}'));
